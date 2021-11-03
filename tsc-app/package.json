@@ -1,0 +1,22 @@
+{
+  "name": "tsc-app",
+  "version": "1.0.0",
+  "description": "",
+  "author": "loadko",
+  "main": "dist/index.js",
+  "scripts": {
+    "prestart": "tsc",
+    "start": "node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "class-transformer": "^0.4.0",
+    "class-validator": "^0.13.1",
+    "reflect-metadata": "^0.1.13",
+    "tsc-package": "file:../tsc-package"
+  },
+  "devDependencies": {
+    "typescript": "^4.4.4"
+  },
+  "license": "ISC"
+}
