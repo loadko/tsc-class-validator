@@ -1,3 +1,4 @@
+import 'reflect-metadata'
 import { Type } from 'class-transformer'
 import { ArrayNotEmpty, IsArray, IsNotEmpty, IsString, ValidateNested } from 'class-validator'
 
@@ -10,7 +11,7 @@ export class ParentDto {
   @ArrayNotEmpty()
   @ValidateNested({ each: true })
   @Type(() => ChildDto)
-  children: ChildDto[]
+  items: ChildDto[]
 }
 
 export class ChildDto {
@@ -21,4 +22,24 @@ export class ChildDto {
   @IsString()
   @IsNotEmpty()
   age: string
+
+  @IsArray()
+  @ArrayNotEmpty()
+  @ValidateNested({ each: true })
+  @Type(() => SubChildDto)
+  subItems: SubChildDto[]
+}
+
+export class SubChildDto {
+  @IsString()
+  @IsNotEmpty()
+  age: string
+
+  @IsString()
+  @IsNotEmpty()
+  tooth: string
+
+  @IsString()
+  @IsNotEmpty()
+  footh: string
 }
